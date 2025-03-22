@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="u3a1_moreno.Page2"
+             BackgroundColor="Black"
+             Shell.NavBarIsVisible="False">
+	<Grid x:Name="MainGrid" Margin="0,40,0,0">
+		<VerticalStackLayout Padding="20" Spacing="10">
+			<Label  x:Name="TitleLabel"
+					VerticalOptions="Center" 
+					HorizontalOptions="Center"
+					FontSize="40"
+					FontAttributes="Bold"
+					TextColor="FloralWhite"/>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<!-- Borde Izquierdo -->
+				<Border x:Name="BrdLeft" Stroke="White" Background="White" StrokeThickness="3" 
+            HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="400">
+					<StackLayout Padding="10,50" HorizontalOptions="Center" VerticalOptions="Center">
+						<Image x:Name="Imagen1"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+					</StackLayout>
+				</Border>
+
+				<!-- Borde Derecho -->
+				<Border x:Name="BrdRight" Grid.Column="1" Stroke="White" Background="White" StrokeThickness="3" 
+            HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="400">
+					<StackLayout Padding="10,50" HorizontalOptions="Center" VerticalOptions="Center">
+						<Image x:Name="Imagen2"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+					</StackLayout>
+				</Border>
+			</Grid>
+
+			<!-- Mostrar valores del acelerometro -->
+			<Label Text="Acelerómetro" FontAttributes="Bold" FontSize="20" TextColor="FloralWhite"/>
+			<Label x:Name="AccelValues" Text="X: 0" TextColor="FloralWhite"/>
+			<Label x:Name="AccelLimits" Text="Los límites en el eje X son: -1.6 y 1.6 tanto para el acelerometro y giroscopio" TextColor="FloralWhite"/>
+
+			<!-- Mostrar valores del giroscopio -->
+			<Label Text="Giroscopio" FontAttributes="Bold" FontSize="20" TextColor="FloralWhite"/>
+			<Label x:Name="GyroValues" Text="X: 0, Y: 0, Z: 0" TextColor="FloralWhite"/>
+		</VerticalStackLayout>
+	</Grid>
+</ContentPage>

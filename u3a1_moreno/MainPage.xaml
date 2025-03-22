@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="u3a1_moreno.MainPage"
+			 Background="Black">
+	<StackLayout Padding="20" Spacing="15">
+		<Label Text="GyroGroove" HorizontalTextAlignment="Center" FontSize="40" Margin="0,90,0,30"
+			   TextColor="FloralWhite" FontAttributes="Bold"/>
+		<Label Text="En esta aplicación, deberás seleccionar una categoría. Una vez elegida, al mover el dispositivo móvil, se activará un sonido diferente según la lectura del acelerómetro y el color de fondo cambiará en función del giroscopio. "
+				TextColor="FloralWhite" FontSize="Medium" Margin="0,0,0,10"/>
+		<Label Text="Elige una categoria: "
+			   TextColor="FloralWhite" FontSize="Medium" Margin="0,0,0,10"/>
+		<CollectionView x:Name="CtvSounds" SelectionMode="Single" ItemsSource="{Binding Categories}">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<ContentView>
+						<Frame Margin="0,15, 0,0" BackgroundColor="#2E2E2E" CornerRadius="0" BorderColor="#2E2E2E">
+							<Frame.GestureRecognizers>
+								<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding Name}"/>
+							</Frame.GestureRecognizers>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto"/>
+									<ColumnDefinition/>
+								</Grid.ColumnDefinitions>
+								<Image Source="{Binding Images}" HeightRequest="80" WidthRequest="120"
+                                           Aspect="AspectFill"/>
+								<Label Grid.Column="1" TextColor="FloralWhite" Text="{Binding Name}"
+                                       FontAttributes="Bold" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</ContentView>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</StackLayout>
+</ContentPage>
